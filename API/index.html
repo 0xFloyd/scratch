@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <form id="gifForm">
+        <input type="text" id="searchTerm" name="searchTerm" placeholder="Search"></input>
+        <button type="submit">Get a new image</button>
+    </form>
+    
+    <img src="#" alt=" Please enter a search term to see a random gif!"/>
+    <script>
+
+        const img = document.querySelector('img');
+        const form = document.getElementById('gifForm');
+        let formSubmit = event => {
+            let userInput = form.searchTerm.value;
+            event.preventDefault();
+            //const searchURL = "//api.giphy.com/v1/gifs/translate?api_key=7RdXv9jfxKTZyUUyJ0Giel1CP87YeVlD&s=" + userInput;
+            //console.log(searchURL);
+            fetch("//api.giphy.com/v1/gifs/translate?api_key=7RdXv9jfxKTZyUUyJ0Giel1CP87YeVlD&s=" + userInput, { mode: 'cors' })
+                .then(function (response) {             //  then and catch --> PROMISES! 
+                   
+                    return response.json();
+                })
+                
+                .then(function (response) {
+                    console.log(response.data.url);
+                    img.src = response.data.images.original.url;
+                });
+                
+            
+            form.reset();
+        }
+        
+        form.addEventListener('submit', formSubmit);
+
+    </script>
+</body>
+
+</html>
