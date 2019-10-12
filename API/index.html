@@ -12,11 +12,26 @@
         <button type="submit">Get a new image</button>
     </form>
     
-    <img src="#" alt=" Please enter a search term to see a random gif!"/>
+    <img src="" alt=" Please enter a search term to see a random gif!"/>
+    <h2 id="imageContent">Search above for a new image!</h2>
     <script>
-
+        
         const img = document.querySelector('img');
         const form = document.getElementById('gifForm');
+        const imageContent = document.getElementById('imageContent');
+        console.log(img.src);
+        let initialImage = (() => {
+            fetch("//api.giphy.com/v1/gifs/random?api_key=7RdXv9jfxKTZyUUyJ0Giel1CP87YeVlD&s=cats", { mode: 'cors' })
+                .then(function (response) {             //  then and catch --> PROMISES!
+                    return response.json();
+                })
+
+                .then(function (response) {
+                    img.src = response.data.images.original.url;
+                });
+        })();
+       
+
         let formSubmit = event => {
             let userInput = form.searchTerm.value;
             event.preventDefault();
@@ -30,6 +45,10 @@
                 .then(function (response) {
                     console.log(response.data.url);
                     img.src = response.data.images.original.url;
+                    imageContent.innerText = "You searched for: " + userInput;
+                })
+                .catch(function(error) {
+                    imageContent.innerText = "Sorry, your search returned no results!";
                 });
                 
             
