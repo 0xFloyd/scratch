@@ -23,8 +23,7 @@
             //const searchURL = "//api.giphy.com/v1/gifs/translate?api_key=7RdXv9jfxKTZyUUyJ0Giel1CP87YeVlD&s=" + userInput;
             //console.log(searchURL);
             fetch("//api.giphy.com/v1/gifs/translate?api_key=7RdXv9jfxKTZyUUyJ0Giel1CP87YeVlD&s=" + userInput, { mode: 'cors' })
-                .then(function (response) {             //  then and catch --> PROMISES! 
-                   
+                .then(function (response) {             //  then and catch --> PROMISES!
                     return response.json();
                 })
                 
