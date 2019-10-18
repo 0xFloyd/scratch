@@ -3,6 +3,7 @@ function sum(a, b) {
 }
 module.exports = sum;
 
+//  https://www.youtube.com/watch?v=Eu35xM76kKY
 const someOrder = {
     items: [
         { name: 'Dragon food', price: 8, quantity: 8 },
