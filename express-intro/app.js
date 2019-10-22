@@ -9,5 +9,9 @@ app.listen(3000, () => {
     console.log('Example App listening on Port 3000');
 });
 
+app.listen(5000, () => {
+    console.log('Example App listening on Port 5000');
+});
+
 
 //  Router can be used to create "sub directories" per say. So, all the routes in /wikii/...         could be stored in the wiki route 
