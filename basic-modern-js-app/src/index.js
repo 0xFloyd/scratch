@@ -1,8 +1,7 @@
 require('dotenv').config()
 const express = require('express');
 const cors = require('cors');
-const models = require('./models/index');
-
+import models, { connectDb } from './models';
 var routes = require('./routes');
 // import saySomething from './my-other-file.js'       // must put import dotenv before any other imports to ensure env variables are included or else they will be undefined 
 
@@ -22,15 +21,61 @@ app.use('/messages', routes.message);
 //  Suddenly we would have access to the me user in the request object, which is the authenticated user, in our routes.     
 //  That's how the Express server can be stateless while a client always sends over the information of the currently authenticated user.
 //  Being a stateless is another characteristic of RESTful services.                                         
-app.use((req, res, next) => {
+app.use(async (req, res, next) => {
   req.context = {
     models,
-    me: models.users[1],
-  };    //all requests include "me", the current user 
-    next();
+    me: await models.User.findByLogin('rwieruch'),
+  };
+  next();
 });
 
+const eraseDatabaseOnSync = true;
 
+connectDb().then(async () => {
+  if (eraseDatabaseOnSync) {
+    await Promise.all([
+      models.User.deleteMany({}),
+      models.Message.deleteMany({}),
+    ]);
+
+    createUsersWithMessages();
+  }
+  
+  app.listen(process.env.PORT, () =>
+    console.log(`Example app listening on port ${process.env.PORT}!`),
+  );
+});
+
+const createUsersWithMessages = async () => {
+  const user1 = new models.User({
+    username: 'rwieruch',
+  });
+
+  const user2 = new models.User({
+    username: 'ddavids',
+  });
+
+  const message1 = new models.Message({
+    text: 'Published the Road to learn React',
+    user: user1.id,
+  });
+
+  const message2 = new models.Message({
+    text: 'Happy to release ...',
+    user: user2.id,
+  });
+
+  const message3 = new models.Message({
+    text: 'Published a complete ...',
+    user: user2.id,
+  });
+
+  await message1.save();
+  await message2.save();
+  await message3.save();
+  await user1.save();
+  await user2.save();
+};
 
 
 
