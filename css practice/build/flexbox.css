@@ -23,9 +23,12 @@
  
 /* flex container */
 .container {
+    display: -webkit-box;
     display: flex; /* container goes across the whole page. children are turned into flex items */
-    justify-content: center;
-     justify-content: space-between; /*evenly spaces all elements on the row or whatever is the parent container*/ 
+    -webkit-box-pack: center;
+            justify-content: center;
+     -webkit-box-pack: justify;
+             justify-content: space-between; /*evenly spaces all elements on the row or whatever is the parent container*/ 
     /* display: inline-flex;  container wraps around content */
     /* border: 10px solid goldenrod; */
     min-height: 100vh;
@@ -40,7 +43,8 @@
 .box {
     /* width:calc(33.33333333%-20px); /* by default, flex wrap is "no wrap" with wrap, this property wraps the items in the flex container 
     margin: 20px; /* this breaks the flexbox wrap because margin is not a part of the box model, its outside */
-    flex:1; /*distributes all of these flex children evenly in the felxbox container  */
+    -webkit-box-flex:1;
+            flex:1; /*distributes all of these flex children evenly in the felxbox container  */
     /* flex:2    box will be double the size of the flex:1 boxes. it takes extra space 
 }
 
