@@ -1,0 +1,49 @@
+body {
+    overflow-x: hidden; 
+}
+
+.app {
+    background-color: lightgrey;
+    overflow: none;
+}
+
+.title-bar {
+    background-color: lightpink;
+    
+}
+
+.menu-item {
+    list-style: none;
+    padding: 5px 0px 0px 0px;
+}
+
+.title-bar-content {
+    display: flex;
+    margin: 0px;
+    padding: 0px;
+  
+}
+.site-logo {
+    height: 30px;
+  
+}
+
+.article-image > figure > img {
+    height: 50vh;
+    width: 50vw;
+}
+
+.article-image > figure > figcaption > span {
+    color: white;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 10% 1fr 10%;
+}
+
+
+
+.article-content {
+    grid-column: 10% 1fr 10%;
+}
