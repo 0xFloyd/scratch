@@ -1,9 +1,10 @@
 body {
     overflow-x: hidden; 
+    font-family: georgia, "times new roman", times, serif;
+    line-height: 1.2;
 }
 
 .app {
-    background-color: lightgrey;
     overflow: none;
 }
 
@@ -14,27 +15,80 @@ Site Header
 
 */
 .title-bar {
-    background-color: lightpink;
+    border-bottom: .5px solid rgba(187, 187, 187, 0.643);
+    
     
 }
 
 .title-bar-content {
-    display: flex;
+    display: grid;
     margin: 0px;
     padding: 0px;
+    grid-template-columns: 10% 5% 5% 60% 20%;
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 16px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
 }
 
 .menu-item {
     list-style: none;
-    padding: 5px 0px 0px 0px;
+    padding: 2px 0px 3px 0px;
+    align-self: center;
+    
 }
 
+.menu-search {
+    justify-self: end;
+    font-weight: bold;
+}
+
+.menu-magnify {
+    padding: 0px 10px 0px 10px;
+}
+
+.menu-genre {
+    white-space: nowrap;
+    font-size: 12px;
+    font-weight: bold;
+}
 
 .site-logo {
-    height: 30px;
-  
+    height: 18px;
+    justify-self: center;
 }
 
+.menu-button {
+    background-color: #567b95;
+    color: white;
+    padding: 5px 10px 4px 10px;
+    border: 1px solid #567b95;
+    border-radius: 3px;
+    font-size: 8px;
+    margin-right: 5px;
+    font-weight: bold;
+}
 
 
 /* 
@@ -62,33 +116,35 @@ Main Site Content
 
 .article-title {
     text-align: center;
+    font-style: italic;
+    font-size: 10px;
+    padding-right: 100px;
 }
 
-.article-image {
+.article-heading-image {
     align-self: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-.article-image > img {
+
+.article-heading-image > img {
     width: 80%;
     object-fit: contain;
     align-self: center;
     display: table;
-
 }
 
-.article-image > figcaption {
+.article-heading-image > figcaption {
     align-self: center;
     text-align: center;
     display: table-caption;
     caption-side:bottom;
     padding: 10px 10% 0 10%;
-    
 }
 
-.article-image > figcaption > span {
-    color: white;
+.article-heading-image > figcaption > span {
+    color: rgb(138, 138, 138);
     font-style: italic;
 }
 
@@ -108,4 +164,57 @@ Main Site Content
 .article-content > p {
     padding: 0px;
     margin: 20px 0px 0px 0px;
+}
+
+.article-inflation-image {
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.inflation-image-container{
+    margin: 0px;
+     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+
+#article-inflation-image-title {
+   
+    margin: 20px 0px 10px 0px;
+}
+
+.article-inflation-image > img {
+    width: 120%;
+    object-fit: contain;
+    align-self: center;
+    display: table;
+    margin: 0px !important;
+}
+
+.bottom-caption {
+    align-self: center;
+    text-align: center;
+    display: table-caption;
+    caption-side:bottom;
+    padding: 0px 10% 0 10%;
+}
+
+.iframe-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px; 
+    height: 0; 
+    overflow: hidden;
+}
+
+.iframe-container iframe {
+   position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  
 }
