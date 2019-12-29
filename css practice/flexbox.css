@@ -1,0 +1,49 @@
+/* Flexbox tutorial by Wes Bos */
+
+
+
+.box {
+    color: white;
+    font-size: 100px;
+    text-align: center;
+    text-shadow:4px 4px 0 rgba(0, 0, 0, 0.1);
+    padding: 10px;
+}
+
+.box1{background: green}
+.box2{background:blue}
+.box3{background:purple}
+.box4{background:grey}
+.box5{background:gold}
+.box6{background: orange}
+.box7{background: red}
+.box8{background: lightgrey}
+.box9{background: greenyellow}
+.box10{background: turquoise}
+ 
+/* flex container */
+.container {
+    display: flex; /* container goes across the whole page. children are turned into flex items */
+    justify-content: center;
+     justify-content: space-between; /*evenly spaces all elements on the row or whatever is the parent container*/ 
+    /* display: inline-flex;  container wraps around content */
+    /* border: 10px solid goldenrod; */
+    min-height: 100vh;
+    /* flex-direction: row;   main axis is left to right */
+    /* flex-direction: column;   stretches items top to bottom 
+    flex-wrap: wrap;
+    flex-direction: column;  */
+   
+}
+
+/* flex item */
+.box {
+    /* width:calc(33.33333333%-20px); /* by default, flex wrap is "no wrap" with wrap, this property wraps the items in the flex container 
+    margin: 20px; /* this breaks the flexbox wrap because margin is not a part of the box model, its outside */
+    flex:1; /*distributes all of these flex children evenly in the felxbox container  */
+    /* flex:2    box will be double the size of the flex:1 boxes. it takes extra space 
+}
+
+.box3 {
+    /* order: 5;  default order is 0. anything greater moves behind all 0s, etc. Use order for mobile!!!!!!!!!!!!!!!!!!!!!!!!!!!!  */
+}
