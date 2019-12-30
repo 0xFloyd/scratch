@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';     // Runtime type checking for React props and similar objects.
 import { createPost } from '../actions/postActions';
 
 
@@ -55,6 +55,8 @@ class Postform extends Component {
     }
 }
 
+
+// assign the different props and their types to the component
 Postform.propTypes = {
     createPost: PropTypes.func.isRequired
 };

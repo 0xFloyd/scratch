@@ -1,4 +1,5 @@
-import { FETCH_POSTS, NEW_POST } from './types';
+const FETCH_POSTS = 'FETCH_POSTS';
+const NEW_POST = 'NEW_POST';
 
 
 //this dispatches FETCH_POSTS to the reducer 
