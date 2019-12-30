@@ -108,3 +108,33 @@ then create file called "types.js" in actions folder
 after this (in postREducer file) our reducer is ready to take in some types.
 
 now let's create our actions (postActions.js in actions folder)
+
+each action creator is going to be a function we export 
+we pass in dispatch. dispatch is kind of like a promise. this is where we create our fetch
+
+Now, head to posts component. we can take our componentDidMount and constructor, because w're now using redux to get state and FETCH. instead of this.setState, we want to dispatch the data to the reducer.
+
+So, we create a new case FETCH_POSTS (in postReducer.js), which takes in action data. now we need to pass this to react component 
+
+import { connect } from 'react-redux';
+this connects react components to redux store
+we also need to import the fetchPosts action in Posts.js react component 
+import { fetchPosts } from '../actions/postActions';
+
+Now, in order to connect, we cant just export react component, we need to connect. 
+
+once fetch completes, we now need to get the new items from the state and put them in the component. 
+
+
+
+You should be adding props to prop type in react
+
+add redux devtools to firefox. however, we need to implement this into our application for it to work. we bring it into store.js file as enhancer as 'compose'
+
+import { createStore, applyMiddleware, compose } from 'redux';
+
+const store = createStore(rootReducer, initialState, 
+    compose(
+        applyMiddleware(...middleware),
+        window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+        )); //spread operator, so takes in all array value of middleware
