@@ -41,3 +41,70 @@ Go to devtools in firefox. click the >> and select components. here you can see 
 
 now we need to handle formsubmit 
 add onsubmit to form 
+
+bind on submit event 
+
+create post object, grabbing current state, then send post request (with headers so it knows what type of data its getting). then stringify the the data we're sending 
+
+ fetch('https://jsonplaceholder.typicode.com/posts', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+
+            body: JSON.stringify(post)
+        })
+        .then(res => res.json())
+        .then(data => console.log(data));
+    }
+
+# Now we implement REDUX. 23:19
+We need redux because we want our post we add to be added to the "posts" component, which is a completely seperate compoenent.
+We also want to fetch our posts from a post "action" file
+
+actions: submit psot form, fetch posts on page, 
+then we have reducers,
+
+reducers: define our state thats sent back based on action
+
+remmber, redux has nothing to do with react. we use react-redux library. we also want redux-thunk which is middleware that allows us to access dispact method so we can make asynchronous calls for our actions 
+
+we need to bring in a "provider", which is basically the glue for react and redux 
+import { Provider } from 'react-redux';
+
+then we need to wrap everything in main app in provider component. it goe sin return method 
+
+provider takes the store. the store holds the state of the app 
+ <Provider store={store}>
+
+First, we create store with createStore function
+we create a spereate store.js file in src folder (theres a million ways to do react/ redux things, this is one way)
+import { createStore, applyMiddleware } from 'redux';
+
+// takes in 1. root reducer, 2. initial state, and then 3. any enhancers
+const store = createStore(rootReducer, initialState,  applyMiddleware(...middleware)); //spread operator, so takes in all array value of middleware
+
+now we create folder for our reducers in src 
+rootReducer goes in index.js file in reducers folder 
+
+# this is alot of boilerplate. but dont let this bother you. 
+
+create postReducer in reducers folder 
+// evaluates any actions such as fetching psots, creates new posts
+
+Actions are plain JavaScript objects.
+for actions we create "types" 
+Actions must have a type property that indicates the type of action being performed. 
+
+const ADD_TODO = 'ADD_TODO'
+{
+  type: ADD_TODO,
+  text: 'Build my first Redux app'
+}
+
+create "actions" folder in src
+then create file called "types.js" in actions folder
+
+after this (in postREducer file) our reducer is ready to take in some types.
+
+now let's create our actions (postActions.js in actions folder)
