@@ -9,7 +9,7 @@ import store from './store'
 
 
 
-
+// we need to bring in a "provider", which is basically the glue for react and redux import { Provider } from 'react-redux'. wrap whole app in this
 function App() {
   return (
     <Provider store={store}>

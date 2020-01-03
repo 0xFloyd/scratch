@@ -20,6 +20,7 @@ class Postform extends Component {
         this.setState({[e.target.name]: e.target.value});
     }
 
+    // interact with store on action (in this case, action is form submittal)
     onSubmit(e) {
         e.preventDefault();
 
@@ -28,7 +29,7 @@ class Postform extends Component {
             body: this.state.body
         };
 
-        //call action
+        //call action and pass in react state 
         this.props.createPost(post)
     }
 

@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-import rootReducer from './reducers';
+import rootReducer from './reducers';       //if you dont specify a file, this imports index.js in said folder
 
 
 const initialState = {};
