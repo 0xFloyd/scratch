@@ -6,6 +6,7 @@ const initialState = {
   items: [],
   item: {},
   author: ""
+  user: user
 };
 
 // action has to have a type. this is what we're evaluating
