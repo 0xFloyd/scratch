@@ -5,8 +5,8 @@ import { FETCH_POSTS, NEW_POST } from "../actions/types";
 const initialState = {
   items: [],
   item: {},
-  author: ""
-  user: user
+  author: "",
+  user: ""
 };
 
 // action has to have a type. this is what we're evaluating
